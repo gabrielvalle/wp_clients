@@ -1,0 +1,33 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+## Jobi Farm Site
+  helifreireg.com:
+    site_hosts:
+      - helifreireg.com
+    local_path: ../sites # path targeting local Bedrock site directory
+    repo: git@github.com:gabrielvalle/wp_clients.git
+    site_install: true
+    site_title: Heli Freireg
+    admin_user: heli
+    admin_password: freireg123
+    admin_email: contato@gabrielvalle.com.br
+    multisite:
+      enabled: false
+      subdomains: false
+    ssl:
+      enabled: false
+    cache:
+      enabled: false
+      duration: 30s
+    system_cron: true
+    env:
+      wp_home: http://helifreireg.com
+      wp_siteurl: http://helifreireg.com/wp # DO NOT REMOVE /wp from the url
+      wp_env: development
+      db_name: wordpress
+      db_user: root
+      db_password: biL20206510rc
+
